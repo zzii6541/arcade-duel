@@ -1,0 +1,295 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080808;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* HOME SCREEN */
+
+#home {
+  background:
+    radial-gradient(ellipse at center, #191919 0%, #080808 65%);
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.subtitle {
+  color: #888;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 17px 35px;
+  background: #eeeeee;
+  color: #080808;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+#new-game {
+  min-width: 230px;
+  margin-top: 15px;
+}
+
+.small-button {
+  padding: 10px 18px;
+  background: #222;
+  color: #aaa;
+  font-size: 11px;
+}
+
+#reset-audio {
+  position: absolute;
+  bottom: 25px;
+}
+
+/* AUDIO SETUP */
+
+#audio-setup {
+  gap: 20px;
+}
+
+#audio-setup p {
+  color: #aaa;
+}
+
+#audio-setup label {
+  width: min(400px, 100%);
+  text-align: left;
+  color: #ccc;
+  font-size: 14px;
+}
+
+input[type="file"] {
+  width: min(400px, 100%);
+  padding: 12px;
+  background: #171717;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+input[type="text"] {
+  width: min(400px, 100%);
+  padding: 18px;
+  background: #171717;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: white;
+}
+
+#save-audio,
+#next-player {
+  margin-top: 15px;
+}
+
+/* GAME SCREEN */
+
+#game {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  gap: 0;
+  background: #080808;
+}
+
+.player {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 25px;
+}
+
+.player-one {
+  border-right: 1px solid #252525;
+  box-shadow: inset 35px 0 90px -75px rgba(255, 45, 45, 0.8);
+}
+
+.player-two {
+  box-shadow: inset -35px 0 90px -75px rgba(45, 110, 255, 0.8);
+}
+
+.player-one h2 {
+  color: #ff5555;
+}
+
+.player-two h2 {
+  color: #5599ff;
+}
+
+.lives {
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.indicators {
+  font-size: 24px;
+  letter-spacing: 10px;
+  color: #aaa;
+}
+
+.player-one button {
+  background: #ff4545;
+  color: white;
+}
+
+.player-two button {
+  background: #397fff;
+  color: white;
+}
+
+.player button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* WINNER SCREEN */
+
+#winner {
+  background: #000;
+  transition: background 2s ease;
+}
+
+#winner-name {
+  opacity: 0;
+  color: white;
+  font-size: clamp(3rem, 10vw, 7rem);
+  transition: opacity 3s ease, color 1s ease;
+}
+
+#winner-name.visible {
+  opacity: 1;
+}
+
+#winner-name.red {
+  color: #ff4545;
+  text-shadow: 0 0 35px #ff2222;
+}
+
+#winner-name.blue {
+  color: #448aff;
+  text-shadow: 0 0 35px #2266ff;
+}
+
+#skip-winner {
+  position: absolute;
+  bottom: 30px;
+}
+
+/* PORTRAIT IPAD / PHONE */
+
+@media (orientation: portrait) {
+  #game {
+    flex-direction: column;
+  }
+
+  .player {
+    width: 100%;
+    min-height: 50vh;
+    gap: 12px;
+  }
+
+  .player-one {
+    border-right: none;
+    border-bottom: 1px solid #252525;
+  }
+
+  .lives {
+    font-size: 5rem;
+  }
+
+  .player h2 {
+    font-size: 1.5rem;
+  }
+
+  .indicators {
+    font-size: 18px;
+  }
+
+  .player button {
+    padding: 13px 25px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .player {
+    gap: 12px;
+  }
+
+  .lives {
+    font-size: 4rem;
+  }
+
+  .player h2 {
+    font-size: 1.3rem;
+  }
+}
