@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Arcade Duel">
+
+  <title>ARCADE DUEL</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main id="app">
+    <section id="home" class="screen">
+      <div class="home-content">
+        <h1>ARCADE DUEL</h1>
+        <p class="subtitle">TWO PLAYERS. ONE WINNER.</p>
+
+        <h2>READY?</h2>
+
+        <button id="new-game">NEW GAME</button>
+      </div>
+
+      <button id="reset-audio" class="small-button">
+        RESET SOUNDTRACKS
+      </button>
+    </section>
+
+    <section id="audio-setup" class="screen hidden">
+      <h1>ARCADE DUEL</h1>
+      <h2>AUDIO SETUP</h2>
+      <p>Import your three MP3 soundtracks.</p>
+
+      <label>Background soundtrack</label>
+      <input type="file" id="soundtrack-file" accept=".mp3,audio/mpeg">
+
+      <label>Winner music</label>
+      <input type="file" id="winner-file" accept=".mp3,audio/mpeg">
+
+      <label>Life loss sound</label>
+      <input type="file" id="shot-file" accept=".mp3,audio/mpeg">
+
+      <button id="save-audio">SAVE AUDIO</button>
+    </section>
+
+    <section id="player-setup" class="screen hidden">
+      <h1 id="setup-heading">PLAYER 1</h1>
+      <input id="player-name" type="text" placeholder="Enter player name" maxlength="18">
+      <button id="next-player">NEXT</button>
+    </section>
+
+    <section id="game" class="screen hidden">
+      <div class="player player-one">
+        <h2 id="player-one-name">PLAYER 1</h2>
+        <div id="player-one-lives" class="lives">4</div>
+        <div id="player-one-indicators" class="indicators">● ● ● ●</div>
+        <button id="player-one-button">LOSE LIFE</button>
+      </div>
+
+      <div class="player player-two">
+        <h2 id="player-two-name">PLAYER 2</h2>
+        <div id="player-two-lives" class="lives">4</div>
+        <div id="player-two-indicators" class="indicators">● ● ● ●</div>
+        <button id="player-two-button">LOSE LIFE</button>
+      </div>
+    </section>
+
+    <section id="winner" class="screen hidden">
+      <h1 id="winner-name"></h1>
+      <button id="skip-winner" class="small-button hidden">SKIP</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
