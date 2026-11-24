@@ -6,7 +6,9 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./style.css",
   "./script.js",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
@@ -40,9 +42,7 @@ self.addEventListener("fetch", event => {
     caches.match(event.request).then(cached => {
       if (cached) return cached;
 
-      return fetch(event.request).then(response => {
-        return response;
-      });
+      return fetch(event.request);
     })
   );
 });
