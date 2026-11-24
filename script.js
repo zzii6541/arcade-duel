@@ -209,15 +209,16 @@ function nextPlayer() {
     return;
   }
 
-  players[setupPlayer].name = name;
-
   if (setupPlayer === 0) {
+    players[0].name = name;
     setupPlayer = 1;
     $("setup-heading").textContent = "PLAYER 2";
     $("player-name").value = "";
-  } else {
-    startGame();
+    return;
   }
+
+  players[1].name = name;
+  startGame();
 }
 
 // ---------- GAME ----------
